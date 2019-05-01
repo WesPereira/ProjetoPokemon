@@ -1,6 +1,6 @@
 /*
  *  */
-
+//TESTANDO
 public class Pokemons {
 	private int MaxHP;
 	private int tipoDoPokemon;
