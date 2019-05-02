@@ -34,11 +34,7 @@ public class Pokemon {
 	public int getHPAtual() {
 		return this.HP;
 	}
-	
-	public int gettipoDoPokemon() {
-		return tipoDoPokemon;
-	}
-	
+
 	public String getnomeDoPokemon() {
 		return nomePokemon;
 	}

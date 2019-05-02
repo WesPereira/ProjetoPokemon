@@ -17,5 +17,7 @@ public class Treinador {
 		}
 	}
 	
-	
+	public void atacarPokemon (int idx, Pokemon inimigo) {
+		
+	}
 }
