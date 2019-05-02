@@ -1,5 +1,3 @@
-package Pokemons;
-
 public class item {
 	private String nome;
 	private int pontos;

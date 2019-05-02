@@ -5,12 +5,11 @@ public class Treinador {
 	private int poções;
 	private static int qtPokemons = 0;
 	
-	public Treinador(String nome, int poções) {
+	public Treinador(String nome) {
 		this.nome = nome;
-		this.poções = poções;
 	}
 	
-	public void adicionaPokemon(int HP, String tipo, String[] habilidades, int[] potencia) {
+	public void adicionaPokemon(int HP, String tipo, String nome, String[] habilidades, int[] potencia) {
 		if (qtPokemons < 6) {
 			deck[qtPokemons] = new Pokemon(HP, tipo, habilidades, potencia);
 			qtPokemons++;

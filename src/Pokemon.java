@@ -35,7 +35,7 @@ public class Pokemon {
 		return this.HP;
 	}
 
-	public String getnomeDoPokemon() {
+	public String getNomeDoPokemon() {
 		return nomePokemon;
 	}
 	
