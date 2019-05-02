@@ -1,4 +1,4 @@
-
+//TEST
 public class Pokemon {
 	private int MaxHP;
 	private String tipoDoPokemon;
