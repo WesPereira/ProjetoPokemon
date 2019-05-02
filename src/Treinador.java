@@ -15,6 +15,7 @@ public class Treinador {
 			qtPokemons++;
 		}
 	}
+	
 	public void adicionaPoção(String nome, int pontos) {
 		int i = 0;
 		while (i < 3) {
@@ -25,19 +26,24 @@ public class Treinador {
 		}
 		if (i == 3) System.out.println("Não pode adicionar poção, limite máximo de 3");
 	}
+	
 	public void removePoção(int x) {
 		poções[x] = null;
 	}
+	
 	public void removePokemon(int numeroDoPokemon) {
 		deck[numeroDoPokemon] = null;
 	}
+	
 	public void atacarPokemon (int idx, Pokemon inimigo) {
 		inimigo.perdeHP(deck[pokemonAtivo].getPotenciaHabilidade(idx));
 	}
+	
 	public void usarItem(int x) {
 		deck[pokemonAtivo].curaHP(poções[x].getPontos());
 		removePoção(x);
 	}
+	
 	public boolean fugir() {
 		return true;
 	}

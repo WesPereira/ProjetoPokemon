@@ -1,14 +1,18 @@
 
+
 public class ControladorDeBatalha extends Controller{
 	
-	public class InicioBatalha extends Events{
+	class InicioBatalha extends Event{
+		
+		public InicioBatalha(long eventTime) {
+			super(eventTime);
+		}
 		
 		//Criando o primeiro Treinador 
 		private Treinador Treinador1 = new Treinador("Ash");
-		
-		private String[] habilidades1 = {"Habilidade 1", "Habilidade 2", "Habilidade 3", "Habilidade 4"};
-		private int[] potencias1 = {100, 150, 130, 200};
-		Treinador1.adicionaPokemon(100, "Grama", "Bulbassauro", habilidades1, potencias1);
+		public void CriaJogador() {
+			Treinador1.adicionaPokemon(100, "Grama", "Bulbassauro", habilidades1, potencias1);
+		}
 		
 		private String[] habilidades2 = {"Habilidade 1", "Habilidade 2", "Habilidade 3", "Habilidade 4"};
 		private int[] potencias2 = {100, 150, 130, 200};
@@ -41,5 +45,20 @@ public class ControladorDeBatalha extends Controller{
 		private int[] potencias8 = {100, 150, 130, 200};
 		Treinador1.adicionaPokemon(100, "Grama", "Bulbassauro", habilidades4, potencias4);
 		
+		public void action() {
+			Atacar();
+			//System.out.println("Faça sua escolha: ");
+			//System.out.println("[ 0 ] Atacar | [ 1 ] Trocar o Pokemon Ativo | [ 2 ] Usar item | [ 3 ] Fugir da batalha");
+			
+		}
+		
+		public void description() {
+			
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		ControladorDeBatalha 
 	}
 }
