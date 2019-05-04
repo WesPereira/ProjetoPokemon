@@ -34,8 +34,12 @@ public class Pokemon {
 	public int getHPAtual() {
 		return this.HP;
 	}
-
-	public String getNomeDoPokemon() {
+	
+	public int getHPMax() {
+		return this.MaxHP;
+	}
+	
+	public String getNomePokemon() {
 		return nomePokemon;
 	}
 	
@@ -43,7 +47,7 @@ public class Pokemon {
 		return Hab.getNome(num);
 	}
 	
-	public int getPotenciaHabilidade(int num) {
+	public int getPotHab(int num) {
 		return Hab.getPotencia(num);
 	}
 	

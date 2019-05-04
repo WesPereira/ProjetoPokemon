@@ -1,37 +1,11 @@
+import java.util.Random;
 import java.util.Scanner;
 
-public class ControladorDeBatalha extends Controller{
-	public boolean terminou = false;
+public class ControladorDeBatalha{
+	private boolean terminou = false;
 	
-	public void OutraRodada (){
-		
-		//Criando jogador1
-		Treinador jogador1 = new Treinador("Ash");
-		
-		Pokemon[] deckJogador1 = new Pokemon[4];
-		String[][] habilidades = {{"Golpezao", "Tapao", "Socao", "Chutao"}, 
-								  {"Pescotapa", "Peba", "Antonio", "Nunes"},
-								  {"Pescotapa", "Peba", "Antonio", "Nunes"},
-								  {"Pescotapa", "Peba", "Antonio", "Nunes"}};
-		int[][] potencias = {{80, 50, 60, 30}, 
-							 {80, 50, 60, 30},
-							 {80, 50, 60, 30},
-							 {80, 50, 60, 30}};
-		deckJogador1[0] = new Pokemon(250, "Grama", "Estranhinho1", habilidades[0], potencias[0]);
-		deckJogador1[1] = new Pokemon(250, "Grama", "Estranhinho2", habilidades[1], potencias[1]);
-		deckJogador1[2] = new Pokemon(250, "Grama", "Estranhinho3", habilidades[2], potencias[2]);
-		deckJogador1[3] = new Pokemon(250, "Grama", "Estranhinho4", habilidades[3], potencias[3]);
-		jogador1.adicionarPokemon(deckJogador1[0]);
-		jogador1.adicionarPokemon(deckJogador1[1]);
-		jogador1.adicionarPokemon(deckJogador1[3]);
-		jogador1.adicionarPokemon(deckJogador1[4]);
-		
-		//Criando treinador 2
-		Treinador jogador2 = new Treinador("Misty");
-		jogador2.adicionarPokemon(deckJogador1[4]);
-		jogador2.adicionarPokemon(deckJogador1[3]);
-		jogador2.adicionarPokemon(deckJogador1[2]);
-		jogador2.adicionarPokemon(deckJogador1[1]);
+	public boolean getTerminou() {
+		return terminou;
 	}
 	
 	private class Fugir extends Evento{
@@ -41,13 +15,12 @@ public class ControladorDeBatalha extends Controller{
 		}
 		
 		public void action() {
-			System.out.println(getTreinador1() + "desistiu, rs!");
+			System.out.println(getTreinador1() + " desistiu, rs!");
 			terminou = true;
 		}
 	}
 	
 	private class TrocaPokemon extends Evento{
-		boolean trocou = false;
 		public TrocaPokemon(Treinador corredor) {
 			super(2, corredor);
 		}
@@ -55,26 +28,80 @@ public class ControladorDeBatalha extends Controller{
 		public void action() {
 			Scanner c = new Scanner(System.in);
 			int escolha;
-			Treinador play = getTreinador1(); 
-			while (trocou == false) {
-				System.out.println("Seu pokemon atual é: " + play.getPokemonAtivo().getNomeDoPokemon());
+			Treinador p = getTreinador1(); 
+			while (true) {
+				int k = 0;
+				System.out.println("Seu pokemon atual é: " + p.getPokemonAtivo().getNomePokemon());
 				System.out.println("Escolha para qual pokemon deseja trocar: ");
-				System.out.println("[]");
+				for (int i = 0; i < 4; i++) {
+					if (p.getPokemonAtivo() != p.getPokemonqq(i)) {
+						System.out.println("[ " + k + "] " + p.getPokemonqq(i).getNomePokemon());
+						k++;
+					}
+				}
 				escolha = c.nextInt();
-				if (play.getPokemonqq(escolha).estaVivo()) {
-					play.setPokemonAtivo(escolha);
+				if (p.getPokemonqq(escolha).estaVivo()) {
+					p.setPokemonAtivo(escolha);
 					break;
 				}
-				System.out.println("Opção INVÁLIDA! TENTE OUTRO POKEMON\n");
+				System.out.println("POKEMON SEM VIDA! TENTE OUTRO POKEMON\n");
 			}
 			System.out.println("Troca realizada com SUCESSO!");
+			c.close();
 		}
 	}
 	
 	private class UsarItem extends Evento{
+	
+		public UsarItem(Treinador Treinador1) {
+			super(3, Treinador1);
+		}
 		
+		public void action() {
+			Treinador p = getTreinador1();
+			Random gerador = new Random();
+			int x = gerador.nextInt(4);
+			p.UsarItem(x);
+			System.out.println("Você acaba de usar a poção " + p.getItem(x).getNome());
+			System.out.println(p.getPokemonAtivo().getNomePokemon() + "acaba de ser curado em " + p.getItem(x).getNome());
+			System.out.println(p.getPokemonAtivo().getNomePokemon() + " [" + p.getPokemonAtivo().getHPAtual() + "/" + p.getPokemonAtivo().getHPMax() + "]");
+		}
 	}
-	public static void main(String[] args) {
+	
+	private class Atacar extends Evento{
+		private Treinador atacado;
+		public Atacar(Treinador t1) {
+			super(4, t1);
+		}
 		
+		public void setAtacado(Treinador t2) {
+			atacado = t2;
+		}
+		
+		public void action() {
+			Scanner c = new Scanner(System.in);
+			int escolha;
+			
+			while (true) {
+				System.out.println("Escolha qual ataque deseja realizar:");
+				System.out.println("[ 0 ] " + getTreinador1().getPokemonAtivo().getNomeHabilidade(0));
+				System.out.println("[ 1 ] " + getTreinador1().getPokemonAtivo().getNomeHabilidade(1));
+				System.out.println("[ 2 ] " + getTreinador1().getPokemonAtivo().getNomeHabilidade(2));
+				System.out.println("[ 3 ] " + getTreinador1().getPokemonAtivo().getNomeHabilidade(3));
+				escolha = c.nextInt();
+				if (escolha > 0 && escolha < 4) break;
+				System.out.println("Ataque inexistente! Tente novamente.");
+			}
+			c.close();
+			int meuHp = atacado.getPokemonAtivo().getHPAtual();
+			int potHab = getTreinador1().getPokemonAtivo().getPotHab(escolha);
+			if (meuHp > potHab) {
+				atacado.getPokemonAtivo().perdeHP(potHab);
+			}
+			else if (atacado.getMortos() < 4) {
+				
+			}
+			else terminou = true;
+		}
 	}
 }
