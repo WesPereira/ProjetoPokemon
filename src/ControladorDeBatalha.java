@@ -8,6 +8,20 @@ public class ControladorDeBatalha{
 		return terminou;
 	}
 	
+	public Evento novoEvento(int qual, Treinador t) {
+		switch(qual) {
+		case(0):
+			return new Fugir(t);
+		case(1):
+			return new TrocaPokemon(t);
+		case(2):
+			return new UsarItem(t);
+		case(3):
+			return new Atacar(t);
+		}
+		return null;
+	}
+	
 	private class Fugir extends Evento{
 		
 		public Fugir(Treinador corredor) {
