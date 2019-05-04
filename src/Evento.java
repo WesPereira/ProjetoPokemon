@@ -16,4 +16,6 @@ abstract public class Evento {
 	}
 	
 	abstract public void action();
+	
+	abstract public void cadastrarAdv(Treinador adv);
 }

@@ -3,12 +3,16 @@ public class Treinador {
 	private Pokemon[] deck = new Pokemon[6];
 	private int pokemonAtivo, pokemonsMortos;
 	private Item[] poções = new Item[4];
-	private static int qtPokemons = 0;
+	private int qtPokemons = 0;
 	
 	public Treinador(String nome) {
 		this.nome = nome;
 		this.pokemonAtivo = 0;
 		this.pokemonsMortos = 0;
+		poções[0] = new Item("Curinha", 50);
+		poções[1] = new Item("Curinha2", 40);
+		poções[2] = new Item("Curinha3", 70);
+		poções[3] = new Item("Curinha4", 60);
 	}
 	
 	public void adicionarPokemon(Pokemon Pokemonadd) {
@@ -23,7 +27,12 @@ public class Treinador {
 	}
 	
 	public void removerPokemon(int numeroDoPokemon) {
+		qtPokemons--;
 		deck[numeroDoPokemon] = null;
+	}
+	
+	public int getQtPokemons() {
+		return qtPokemons;
 	}
 	
 	public void UsarItem(int x) {
