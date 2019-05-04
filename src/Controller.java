@@ -4,9 +4,9 @@ class EventSet {
 	private int index = 0;
 	private int next = 0;
 
-	public void add(Event e) {
+	public void adicionaEvento(Event e) {
 		if(index >= events.length)
-			return; // (In real life, throw exception)
+			return;
 		events[index++] = e;
 	}
 
@@ -24,9 +24,11 @@ class EventSet {
 		} while(events[next] == null);
 		return events[next];
 	}
-	public void removeCurrent() {
+	
+	public void removeEventoAtual() {
 		events[next] = null;
 	}
+	
 }
 
 public class Controller {
