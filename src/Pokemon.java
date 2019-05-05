@@ -1,10 +1,10 @@
 //TEST
 public class Pokemon {
-	private int MaxHP;
+	private double MaxHP;
 	private String tipoDoPokemon;
 	private String nomePokemon;
 	private Habilidades Hab;
-	private int HP;
+	private double HP;
 	
 	public Pokemon(int HP, String tipoDoPokemon, String nomePokemon, String[] hab, int[] powerHab) {
 		this.HP = HP;
@@ -19,7 +19,7 @@ public class Pokemon {
 		return false;
 	}
 	
-	public void perdeHP(int dano) {
+	public void perdeHP(double dano) {
 		if (this.estaVivo()) {
 			if (dano < this.HP) this.HP -= dano;
 			else this.HP = 0;
@@ -31,11 +31,11 @@ public class Pokemon {
 		else this.HP += HPextra; 
 	}
 	
-	public int getHPAtual() {
+	public double getHPAtual() {
 		return this.HP;
 	}
 	
-	public int getHPMax() {
+	public double getHPMax() {
 		return this.MaxHP;
 	}
 	
