@@ -9,6 +9,10 @@ public class ControladorDeBatalha{
 		return terminou;
 	}
 	
+	public void Terminar(int num) {
+		if (num == 1)terminou = true;
+		else terminou = false;
+	}
 	public Evento novoEvento(int qual, Treinador t) {
 		switch(qual) {
 			case(1):
@@ -190,7 +194,8 @@ public class ControladorDeBatalha{
 				if (atacado.getMortos() < atacado.getQtPokemons()) {
 					for (int i = 0; i < atacado.getQtPokemons(); i++) {
 						if (atacado.getPokemonqq(i).getHPAtual() > 0) {
-							System.out.println("Oh Não! "+ atacado.getPokemonAtivo().getNomePokemon() + " MORREU!");
+							System.out.println(getTreinador1().getPokemonAtivo().getNomePokemon() + " deu um golpe MORTAL!");
+							System.out.println("Oh Não! "+ atacado.getPokemonAtivo().getNomePokemon() + " MORREU COM O ATAQUE ADVERSÁRIO!");
 							System.out.println(atacado.getNome() + " seu pokemon ativo agora é: " + atacado.getPokemonqq(i).getNomePokemon());
 							System.out.println("");
 							atacado.setPokemonAtivo(i);

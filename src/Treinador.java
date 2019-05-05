@@ -4,6 +4,7 @@ public class Treinador {
 	private int pokemonAtivo, pokemonsMortos;
 	private Item[] poções = new Item[4];
 	private int qtPokemons = 0;
+	private int Pokebolas;
 	
 	public Treinador(String nome) {
 		this.nome = nome;
@@ -13,6 +14,7 @@ public class Treinador {
 		poções[1] = new Item("Curinha2", 40);
 		poções[2] = new Item("Curinha3", 70);
 		poções[3] = new Item("Curinha4", 60);
+		this.Pokebolas = 15;
 	}
 	
 	public void adicionarPokemon(Pokemon Pokemonadd) {
@@ -65,5 +67,13 @@ public class Treinador {
 	
 	public Pokemon getPokemonqq(int idx) {
 		return deck[idx];
+	}
+	
+	public void usarPokebola() {
+		this.Pokebolas--;
+	}
+	
+	public int getPokebolas() {
+		return this.Pokebolas;
 	}
 }
