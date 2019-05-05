@@ -11,14 +11,16 @@ public class ControladorDeBatalha{
 	
 	public Evento novoEvento(int qual, Treinador t) {
 		switch(qual) {
-		case(1):
-			return new Fugir(t);
-		case(2):
-			return new TrocaPokemon(t);
-		case(3):
-			return new UsarItem(t);
-		case(4):
-			return new Atacar(t);
+			case(1):
+				return new Fugir(t);
+			case(2):
+				return new TrocaPokemon(t);
+			case(3):
+				return new UsarItem(t);
+			case(4):
+				return new Atacar(t);
+			case(5):
+				return new AtacarAuto(t);
 		}
 		return null;
 	}
@@ -107,6 +109,69 @@ public class ControladorDeBatalha{
 				if (escolha >= 0 && escolha < 4) break;
 				System.out.println("Ataque inexistente! Tente novamente.");
 			}
+			double meuHp = atacado.getPokemonAtivo().getHPAtual();
+			double vant = getTreinador1().getPokemonAtivo().vantagemPoke(atacado.getPokemonAtivo().getTipoDoPokemon());
+			if (vant > 1) System.out.println(getTreinador1().getPokemonAtivo().getNomePokemon() + " tem VANTAGEM sobre " + 
+								atacado.getPokemonAtivo().getNomePokemon() + ". Suas habilidades darão 2x mais DANOS!");
+			if (vant < 1) System.out.println(getTreinador1().getPokemonAtivo().getNomePokemon() + " tem DESVANTAGEM sobre" + 
+					atacado.getPokemonAtivo().getNomePokemon() + ". Suas habilidades darão apenas metade do DANOS!");
+			double potHab = vant*getTreinador1().getPokemonAtivo().getPotHab(escolha);
+			if (meuHp > potHab) {
+				atacado.getPokemonAtivo().perdeHP(potHab);
+				System.out.println(getTreinador1().getPokemonAtivo().getNomePokemon() + " usou " + getTreinador1().getPokemonAtivo().getNomeHabilidade(escolha) + "!");
+				System.out.println(atacado.getPokemonAtivo().getNomePokemon() + " [" + atacado.getPokemonAtivo().getHPAtual() + "/" + atacado.getPokemonAtivo().getHPMax() + "] \n");  
+			}
+			else {
+				atacado.aumentaMortos();
+				atacado.getPokemonAtivo().perdeHP(10000);
+				if (atacado.getMortos() < atacado.getQtPokemons()) {
+					for (int i = 0; i < atacado.getQtPokemons(); i++) {
+						if (atacado.getPokemonqq(i).getHPAtual() > 0) {
+							System.out.println("Oh Não! "+ atacado.getPokemonAtivo().getNomePokemon() + " MORREU!");
+							System.out.println(atacado.getNome() + " seu pokemon ativo agora é: " + atacado.getPokemonqq(i).getNomePokemon());
+							System.out.println("");
+							atacado.setPokemonAtivo(i);
+							break;
+						}
+					}
+				}
+				else {
+					terminou = true;
+				}
+			}
+		}
+		
+		public void cadastrarAdv(Treinador adv) {
+			atacado = adv;
+		}
+	}
+	
+	public boolean Anda(int direção, Mapa mapinha) {
+		switch(direção) {
+		case(1):
+			return mapinha.praCima();
+		case(2):
+			return mapinha.praDireita();
+		case(3):
+			return mapinha.praBaixo();
+		case(4):
+			return mapinha.praEsquerda();
+		}
+		return false;
+	}
+	
+	private class AtacarAuto extends Evento{
+		private Treinador atacado;
+		public AtacarAuto(Treinador t1) {
+			super(5, t1);
+		}
+		
+		public void action() {
+			Scanner c = new Scanner(System.in);
+			int escolha;
+			Random gerador = new Random();
+			escolha = gerador.nextInt(7333);
+			escolha = escolha % 4;
 			double meuHp = atacado.getPokemonAtivo().getHPAtual();
 			double vant = getTreinador1().getPokemonAtivo().vantagemPoke(atacado.getPokemonAtivo().getTipoDoPokemon());
 			if (vant > 1) System.out.println(getTreinador1().getPokemonAtivo().getNomePokemon() + " tem VANTAGEM sobre " + 
