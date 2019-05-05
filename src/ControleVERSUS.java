@@ -51,7 +51,7 @@ public class ControleVERSUS extends ControladorDeBatalha{
 		
 		String[] hab1 = {"H1", "H2", "H3", "H4"};
 		int[] pow1 = {100, 140, 200, 70};
-		Pokemon p1 = new Pokemon(250, "Grama", "Xuletinha", hab1, pow1);
+		Pokemon p1 = new Pokemon(250, "Normal", "Xuletinha", hab1, pow1);
 		
 		String[] hab2 = {"H1", "H2", "H3", "H4"};
 		int[] pow2 = {115, 130, 210, 300};
@@ -61,7 +61,7 @@ public class ControleVERSUS extends ControladorDeBatalha{
 		
 		String[] hab3 = {"H1", "H2", "H3", "H4"};
 		int[] pow3 = {100, 140, 200, 70};
-		Pokemon p3 = new Pokemon(250, "Normal", "Estranhinho", hab3, pow3);
+		Pokemon p3 = new Pokemon(250, "Lutador", "Estranhinho", hab3, pow3);
 		
 		String[] hab4 = {"H1", "H2", "H3", "H4"};
 		int[] pow4 = {115, 130, 210, 300};

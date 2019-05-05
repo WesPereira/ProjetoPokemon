@@ -109,6 +109,11 @@ public class ControladorDeBatalha{
 			}
 			int meuHp = atacado.getPokemonAtivo().getHPAtual();
 			int potHab = getTreinador1().getPokemonAtivo().getPotHab(escolha);
+			double vant = getTreinador1().getPokemonAtivo().vantagemPoke(atacado.getPokemonAtivo().getTipoDoPokemon());
+			if (vant > 1) System.out.println(getTreinador1().getPokemonAtivo().getNomePokemon() + " tem VANTAGEM sobre " + 
+								atacado.getPokemonAtivo().getNomePokemon() + ". Suas habilidades darão 2x mais DANOS!");
+			if (vant < 1) System.out.println(getTreinador1().getPokemonAtivo().getNomePokemon() + " tem DESVANTAGEM sobre" + 
+					atacado.getPokemonAtivo().getNomePokemon() + ". Suas habilidades darão apenas metade do DANOS!");
 			if (meuHp > potHab) {
 				atacado.getPokemonAtivo().perdeHP(potHab);
 				System.out.println(getTreinador1().getPokemonAtivo().getNomePokemon() + " usou " + getTreinador1().getPokemonAtivo().getNomeHabilidade(escolha) + "!");

@@ -55,27 +55,48 @@ public class Pokemon {
 		return this.tabela[pokemon1][pokemon2];
 	}
 	
-	double[][] tabela = new double[18][18];
+	double[][] tabela = {{1, 1, 1, 1, 1, 0.5, 1, 0, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+						 {2, 1, 0.5, 0.5, 1, 2, 0.5, 0, 2, 1, 1, 1, 1, 0.5, 2, 1, 2, 0.5},
+						 {1, 2, 1, 1, 1, 0.5, 2, 1, 0.5, 1, 1, 2, 0.5, 1, 1, 1, 1, 1},
+						 {1, 1, 1, 0.5, 0.5, 0.5, 1, 0.5, 0, 1, 1, 2, 1, 1, 1, 1, 1, 2}, 
+						 {1, 1, 0, 2, 1, 2, 0.5, 1, 2, 2, 1, 0.5, 2, 1, 1, 1, 1, 1},
+						 {1, 0.5, 2, 1, 0.5, 1, 2, 1, 0.5, 2, 1, 1, 1, 1, 2, 1, 1, 1},
+						 {1, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 1, 2, 1, 2, 1, 1, 2, 0.5},
+						 {0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0.5, 1, 1, 0.5, 1},
+						 {1, 1, 1, 1, 1, 2, 1, 1, 0.5, 0.5, 0.5, 1, 0.5, 1, 2, 1, 1, 2},
+						 {1, 1, 1, 1, 1, 0.5, 2, 1, 2, 0.5, 0.5, 2, 1, 1, 2, 0.5, 1, 1},
+						 {1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 0.5, 0.5, 1, 1, 1, 0.5, 1, 1},
+						 {1, 1, 0.5, 0.5, 2, 2, 0.5, 1, 0.5, 0.5, 2, 0.5, 1, 1, 1, 0.5, 1, 1},
+						 {1, 1, 2, 1, 0, 1, 1, 1, 1, 1, 2, 0.5, 0.5, 1, 1, 0.5, 1, 1},
+						 {1, 2, 1, 2, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 0.5, 1, 1, 0.5, 1, 1},
+						 {1, 1, 2, 1, 2, 1, 1, 1, 0.5, 0.5, 0.5, 2, 1, 1, 0.5, 2, 1, 1},
+						 {1, 1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 1, 1, 2, 1, 0},
+						 {1, 0.5, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 0.5, 0.5},
+						 {1, 2, 1, 0.5, 1, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 1, 1, 2, 2, 1}};
 	
-	public int getTipoDoPokemon (String tipo) {
-		if (tipo.compareTo("Normal") == 0) return 0;
-		else if (tipo.compareTo("Lutador") == 0) return 1;
-		else if (tipo.compareTo("Voador") == 0) return 2;
-		else if (tipo.compareTo("Venenoso") == 0) return 3;
-		else if (tipo.compareTo("Solo") == 0) return 4;
-		else if (tipo.compareTo("Rocha") == 0) return 5;
-		else if (tipo.compareTo("Inseto") == 0) return 6;
-		else if (tipo.compareTo("Fantasma") == 0) return 7;
-		else if (tipo.compareTo("Aço") == 0) return 8;
-		else if (tipo.compareTo("Fogo") == 0) return 9;
-		else if (tipo.compareTo("Água") == 0) return 10;
-		else if (tipo.compareTo("Grama") == 0) return 11;
-		else if (tipo.compareTo("Elétrico") == 0) return 12;
-		else if (tipo.compareTo("Psíquico") == 0) return 13;
-		else if (tipo.compareTo("Gelo") == 0) return 14;
-		else if (tipo.compareTo("Dracônico") == 0) return 15;
-		else if (tipo.compareTo("Trevas") == 0) return 16;
-		else if (tipo.compareTo("Fada") == 0) return 17;
+	public int getTipoDoPokemon () {
+		if (tipoDoPokemon.compareTo("Normal") == 0) return 0;
+		else if (tipoDoPokemon.compareTo("Lutador") == 0) return 1;
+		else if (tipoDoPokemon.compareTo("Voador") == 0) return 2;
+		else if (tipoDoPokemon.compareTo("Venenoso") == 0) return 3;
+		else if (tipoDoPokemon.compareTo("Solo") == 0) return 4;
+		else if (tipoDoPokemon.compareTo("Rocha") == 0) return 5;
+		else if (tipoDoPokemon.compareTo("Inseto") == 0) return 6;
+		else if (tipoDoPokemon.compareTo("Fantasma") == 0) return 7;
+		else if (tipoDoPokemon.compareTo("Aço") == 0) return 8;
+		else if (tipoDoPokemon.compareTo("Fogo") == 0) return 9;
+		else if (tipoDoPokemon.compareTo("Água") == 0) return 10;
+		else if (tipoDoPokemon.compareTo("Grama") == 0) return 11;
+		else if (tipoDoPokemon.compareTo("Elétrico") == 0) return 12;
+		else if (tipoDoPokemon.compareTo("Psíquico") == 0) return 13;
+		else if (tipoDoPokemon.compareTo("Gelo") == 0) return 14;
+		else if (tipoDoPokemon.compareTo("Dracônico") == 0) return 15;
+		else if (tipoDoPokemon.compareTo("Trevas") == 0) return 16;
+		else if (tipoDoPokemon.compareTo("Fada") == 0) return 17;
 		return -1;
+	}
+	
+	public double vantagemPoke(int tipo2) {
+		return tabela[this.getTipoDoPokemon()][tipo2];
 	}
 }
