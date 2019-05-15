@@ -97,7 +97,7 @@ public class ControleADV extends ControladorDeBatalha{
 		
 		String[] hab2 = {"H1", "H2", "H3", "H4"};
 		int[] pow2 = {115, 130, 210, 300};
-		Pokemon p2 = new Pokemon(200, "Solo", "Terrinha", hab2, pow2);
+		Pokemon p2 = new Pokemon(200, "Terra", "Terrinha", hab2, pow2);
 		t1.adicionarPokemon(p1);
 		t1.adicionarPokemon(p2);
 		String[] hab3 = {"H1", "H2", "H3", "H4"};

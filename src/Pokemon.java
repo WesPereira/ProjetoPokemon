@@ -50,12 +50,7 @@ public class Pokemon {
 	public int getPotHab(int num) {
 		return Hab.getPotencia(num);
 	}
-	
-	public double getMultiplicador(int pokemon1, int pokemon2) {
-		return this.tabela[pokemon1][pokemon2];
-	}
-	
-	//Tabela que possui as vantagens entre os tipos de pokemons
+	//Tabela que possui as vantagens entre os pokemons
 	double[][] tabela = {{1, 1, 1, 1, 1, 0.5, 1, 0, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 						 {2, 1, 0.5, 0.5, 1, 2, 0.5, 0, 2, 1, 1, 1, 1, 0.5, 2, 1, 2, 0.5},
 						 {1, 2, 1, 1, 1, 0.5, 2, 1, 0.5, 1, 1, 2, 0.5, 1, 1, 1, 1, 1},
@@ -80,7 +75,7 @@ public class Pokemon {
 		else if (tipoDoPokemon.compareTo("Lutador") == 0) return 1;
 		else if (tipoDoPokemon.compareTo("Voador") == 0) return 2;
 		else if (tipoDoPokemon.compareTo("Venenoso") == 0) return 3;
-		else if (tipoDoPokemon.compareTo("Solo") == 0) return 4;
+		else if (tipoDoPokemon.compareTo("Terra") == 0) return 4;
 		else if (tipoDoPokemon.compareTo("Rocha") == 0) return 5;
 		else if (tipoDoPokemon.compareTo("Inseto") == 0) return 6;
 		else if (tipoDoPokemon.compareTo("Fantasma") == 0) return 7;
