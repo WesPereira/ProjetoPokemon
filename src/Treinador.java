@@ -49,6 +49,10 @@ public class Treinador {
 		pokemonsMortos++;
 	}
 	
+	public void dimMortos() {
+		pokemonsMortos--;
+	}
+	
 	public int getMortos() {
 		return pokemonsMortos;
 	}

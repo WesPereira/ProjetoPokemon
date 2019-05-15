@@ -7,9 +7,9 @@ public class ControleVERSUS extends ControladorDeBatalha{
 		
 		System.out.println("Batalha em andamento!\n");
 		try { Thread.sleep (1000); } catch (InterruptedException ex) {}
-		System.out.println(t1.getNome() +" Pokemo ativo: " + t1.getPokemonAtivo().getNomePokemon() + 
+		System.out.println(t1.getNome() +" Pokemon ativo: " + t1.getPokemonAtivo().getNomePokemon() + 
 				" [" + t1.getPokemonAtivo().getHPAtual() + "/" + t1.getPokemonAtivo().getHPMax() + "]");
-		System.out.println(t2.getNome() +" Pokemo ativo: " + t2.getPokemonAtivo().getNomePokemon() + 
+		System.out.println(t2.getNome() +" Pokemon ativo: " + t2.getPokemonAtivo().getNomePokemon() + 
 				" [" + t2.getPokemonAtivo().getHPAtual() + "/" + t2.getPokemonAtivo().getHPMax() + "] \n");
 		System.out.println(t1.getNome() + " escolha uma opção de ação: ");
 		System.out.println("[ 1 ] Fugir da batalha");
