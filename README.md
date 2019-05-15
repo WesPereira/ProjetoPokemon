@@ -1,5 +1,5 @@
 # ProjetoPokemon
-<h6>Reposítório criado para elaborar o exercício 7 da disciplica MAC0321 - POLI-USP</h6>
+<h3>Reposítório criado para elaborar o exercício 7 da disciplica MAC0321 - POLI-USP</h3>
 <p>Exercício 1: MODO VERSUS - 1x1 entre 2 players - Executar o arquivo <strong>controleVERSUS</strong></p>
 <p>Exercício 2: MODO ADVENTURE - Jogador pode andar pelo mapa em busca de Pokemons Selvagens - Executar o arquivo <strong>controleADV</strong></p>
 <p>
