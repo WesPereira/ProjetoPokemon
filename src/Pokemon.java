@@ -1,4 +1,4 @@
-//TEST
+/*Classe de controle dos Pokemons*/
 public class Pokemon {
 	private double MaxHP;
 	private String tipoDoPokemon;
@@ -55,6 +55,7 @@ public class Pokemon {
 		return this.tabela[pokemon1][pokemon2];
 	}
 	
+	//Tabela que possui as vantagens entre os tipos de pokemons
 	double[][] tabela = {{1, 1, 1, 1, 1, 0.5, 1, 0, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 						 {2, 1, 0.5, 0.5, 1, 2, 0.5, 0, 2, 1, 1, 1, 1, 0.5, 2, 1, 2, 0.5},
 						 {1, 2, 1, 1, 1, 0.5, 2, 1, 0.5, 1, 1, 2, 0.5, 1, 1, 1, 1, 1},

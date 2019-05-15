@@ -1,5 +1,6 @@
 import java.util.Random;
 
+/*Classe que gera e imprime o mapa do modo ADVENTURE*/
 public class Mapa {
 	private char[][] mapinha;
 	private int tamanhol, tamanhoc, posil, posic;
@@ -12,6 +13,7 @@ public class Mapa {
 		mapaPokes = new int[taml][tamc];
 		Random gerador = new Random();
 		int x;
+		//Aqui é o gerado o mapa de modo que em 3/9 dos quadrados tenham grama
 		for(int i = 0; i < taml; i++) {
 			for(int j = 0; j < tamc; j++) {
 				x = gerador.nextInt(131071);
@@ -21,6 +23,7 @@ public class Mapa {
 				if (mapinha[i][j] == '#') {
 					x = gerador.nextInt(8191);
 					x = x % 3 + 1;
+					//Dentro da grama, apenas em 2/3 dela há pokemons selvagens
 					if (x == 1 || x == 2) mapaPokes[i][j] = 1;
 				}
 				else mapaPokes[i][j] = 0;

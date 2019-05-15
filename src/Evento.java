@@ -1,3 +1,4 @@
+/*Classe mãe para todos os tipos de evento possíveis no game*/
 abstract public class Evento {
 	private Treinador Treinador1;
 	private double prioridade;

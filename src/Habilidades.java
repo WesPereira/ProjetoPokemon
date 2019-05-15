@@ -1,3 +1,4 @@
+/*Classe de controle das Habilidades*/
 public class Habilidades {
 	private String[] nome = new String[4];
 	private int[] potencia = new int[4];

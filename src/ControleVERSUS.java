@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+/*Classe que controla o modo PVP*/
 public class ControleVERSUS extends ControladorDeBatalha{
 	private void OutraRodada (Treinador t1, Treinador t2, ControladorDeBatalha cb){
 		Scanner c = new Scanner(System.in);

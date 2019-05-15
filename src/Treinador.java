@@ -1,3 +1,4 @@
+/*Classe de controle do Treinador*/
 public class Treinador {
 	private String nome;
 	private Pokemon[] deck = new Pokemon[6];

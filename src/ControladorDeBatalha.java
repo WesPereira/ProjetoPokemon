@@ -1,6 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
+/*Classe que controla as ações possíveis nos 2 modos de jogo*/
 public class ControladorDeBatalha{
 	private static boolean terminou = false;
 	Scanner c = new Scanner(System.in);
@@ -13,7 +14,9 @@ public class ControladorDeBatalha{
 		if (num == 1)terminou = true;
 		else terminou = false;
 	}
+	
 	public Evento novoEvento(int qual, Treinador t) {
+		
 		switch(qual) {
 			case(1):
 				return new Fugir(t);
@@ -44,6 +47,7 @@ public class ControladorDeBatalha{
 	}
 	
 	private class TrocaPokemon extends Evento{
+		
 		public TrocaPokemon(Treinador corredor) {
 			super(2, corredor);
 		}

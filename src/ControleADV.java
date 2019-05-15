@@ -1,7 +1,9 @@
 import java.util.Random;
 import java.util.Scanner;
-// clonar objeto pra poder capturar vários pokes
+
+/*Classe que controla o modo de jogo ADVENTURE*/
 public class ControleADV extends ControladorDeBatalha{
+	
 	public void OutraRodada(Treinador t1, Treinador t2, Mapa map, ControladorDeBatalha cb) {
 		Scanner c = new Scanner(System.in);
 		int escolha;

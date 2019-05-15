@@ -1,3 +1,4 @@
+/*Classe de controle dos itens*/
 public class Item {
 	private String nome;
 	private int cura;
